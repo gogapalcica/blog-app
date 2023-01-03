@@ -1,22 +1,25 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom"
-import {postService} from "../services/PostService"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { postService } from "../services/PostService";
 
-export const SinglePost = () =>{
-    const {id} = useParams;
-    const [post,setPost] = useState;
+export const SinglePost = () => {
+  const { id } = useParams();
+  const [post, setPost] = useState({});
 
-    const handleGetSinglePost = async()=>{
-        id && setPost(await postService.get(id));
-    }
+  const handleGetSinglePost = async () => {
+    id && setPost(await postService.get(id));
+  };
 
-    useEffect(()=>{
-        handleGetSinglePost();
-    },[]);
+  useEffect(() => {
+    handleGetSinglePost();
+  }, []);
 
-    if(!post) return <></>
+  if (!post) return <></>;
 
-    return <div>
-
+  return (
+    <div>
+      <h2>{post.title}</h2>
+      <p>{post.text}</p>
     </div>
-}
+  );
+};

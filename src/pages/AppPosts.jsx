@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState} from "react";
 import { postService } from "../services/PostService";
 import { SinglePostDetails } from "../components/SinglePostDetails";
 
@@ -17,11 +16,13 @@ export const AppPosts = () => {
   return (
     <div>
       {posts.map((post) => {
-        <li key = {post.id}>
+        
         <SinglePostDetails  
+        key = {post.id}
+        id = {post.id}
         title = {post.title} 
         text = {post.text} />;
-        </li>
+        
       })}
     </div>
   );

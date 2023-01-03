@@ -8,5 +8,5 @@ const Pages = ({children})=> {
         </div> 
     )
     
-}
+};
 export default Pages;
