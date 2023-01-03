@@ -21,12 +21,20 @@ export const AddPost = () => {
     }
   };
 
+  const handleResetForm = () => {
+    setPost({
+        title:"",
+        text:"",
+    });
+  }
+
   return (
     <PostForm
       post={post}
-      onChange={setPost}
-      onSubmit={handleCreateNewPost}
       btnTitle={BTN_TEXT}
+      onChange={setPost}
+      onReset={handleResetForm}
+      onSubmit={handleCreateNewPost}
     />
   );
 };
