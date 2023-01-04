@@ -10,6 +10,9 @@ const Router = () => {
       <Route exact path="/posts">
         <AppPosts />
       </Route>
+      <Route path="/posts/edit/:id">
+        <AddPost />
+      </Route>
       <Route path="/posts/create">
         <AddPost />
       </Route>

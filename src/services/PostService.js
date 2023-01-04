@@ -11,10 +11,24 @@ class PostService extends ApiService{
 
         return data;
     }
+
     async create(postData){
         const response = await this.client.post("/posts",postData);
 
         return response;
     }
+
+    async edit(postData, id){
+        const response = await this.client.put(`/posts/${id}`,postData);
+
+        return response;
+    }
+
+    async delete(id){
+        const response = await this.client.delete(`/posts/${id}`);
+
+        return response;
+    }
+
 }
 export const postService = new PostService();

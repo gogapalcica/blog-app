@@ -9,6 +9,13 @@ export const AppPosts = () => {
     setPosts(await postService.getAll());
   };
 
+  const handleDeletePost = async (postId) => {
+    const response = await postService.delete(postId);
+    if(response.status === 200){
+      setPosts(posts.filter(({id})=> id !== postId));
+    }
+  };
+
   useEffect(() => {
     handleGetPosts();
   }, []);
@@ -21,7 +28,8 @@ export const AppPosts = () => {
         key = {post.id}
         id = {post.id}
         title = {post.title} 
-        text = {post.text} />;
+        text = {post.text}
+        onDelete = {handleDeletePost} />;
         
       })}
     </div>
